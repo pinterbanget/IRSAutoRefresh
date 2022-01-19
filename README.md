@@ -35,5 +35,6 @@ https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
 3) Unzip file, dan pindahkan ke directory C:\. Nggak usah di-run.
 
 
-GANTI FILE
+GANTI FILE:
+
 Ganti kolom "USERNAME", "PASSWORD", "BROWSER_PICK", dan mungkin "EXEC_PATH" dengan yang sesuai dengan kondisimu.
