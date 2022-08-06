@@ -1,40 +1,57 @@
 # IRSAutoRefresh
-Membantu SIAK War-mu biar ga capek-capek refresh browser sendiri.
+Making refreshing your SIAK NG IRS page a one-clicker ;)
 
-## Cara Pakai
--Pastikan kamu punya Mozilla Firefox, Google Chrome, atau Microsoft Edge (Chromium-based, bukan yang lelet)
+## How to use
+Prerequisite: make sure you have either Mozilla Firefox (I highly recommend this), Google Chrome, or Microsoft Edge (Chromium-based) installed
 
-Setup:
-> Mozilla Firefox (REKOMENDASI)
+1) Run the program.
 
-1) Buka
-https://github.com/mozilla/geckodriver/releases
+2) Input your SIAK NG username and password. Select the browser of your choice.
 
-2) Download geckodriver sesuai OS
+3) Click "Run". A browser will be automatically open. Don't interfere. Let the program run.
 
-3) Unzip file, dan pindahkan ke directory C:\. Nggak usah di-run.
+4) When you get a "Your IRS can now be filled" message.. well.. go fill it.
 
+5) You're welcome!
 
-> Google Chrome
+### Changelog
+v0.9.5
 
-1) Buka
-https://chromedriver.chromium.org/downloads
+-utilization of webdriver-manager, now you don't need to install anything before usage!
+(except the browsers, duh)
 
-2) Download chromedriver sesuai OS
+v0.9.4
 
-3) Unzip file, dan pindahkan ke directory C:\. Nggak usah di-run.
+-new, revamped UI with MUCH less bugs than prev version
 
+-better message handling
 
-> Microsoft Edge
+v0.9.3
 
-1) Buka
-https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
+-fixed error on 'high load' SIAK message
 
-2) Download dari pilihan Stable Channel sesuai OS
+v0.9.2
 
-3) Unzip file, dan pindahkan ke directory C:\. Nggak usah di-run.
+-added Microsoft Edge support :)
 
+-new theme! (still basic as fuck tho)
 
-GANTI FILE:
+-only one program for all 3 browsers
 
-Ganti kolom "USERNAME", "PASSWORD", "BROWSER_PICK", dan mungkin "EXEC_PATH" dengan yang sesuai dengan kondisimu.
+v0.9.1
+
+-fixed refreshing when website can't be reached
+
+v0.9
+
+-it's released!
+
+### Known Bugs
+-random 'Anda tidak mempunyai hak akses' bug, fix unknown at this time
+
+### Special Thanks
+-Sifra for letting me borrow her SIAKNG account (alhamdulillah ga keban)
+
+-Adim for making me release this instead of SIAKWIN (which is unusable as of now... unless? 😳)
+
+-TERSESAT, JASTTH, and Reka for testing this program
