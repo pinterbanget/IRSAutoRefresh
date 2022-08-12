@@ -1,6 +1,7 @@
 import os
 import sys
 import time
+from datetime import datetime, timedelta
 from tkinter import *
 from tkinter import messagebox, ttk, Button
 from selenium import webdriver
@@ -82,6 +83,7 @@ def main():
     browser_pick = dropdown_selection.get()
     username = username_entry.get()
     password = password_entry.get()
+    starting_time = time_entry.get()
     if username != '' and password != '' and browser_pick != '(Select your browser...)':
         try:
             if browser_pick == 'Chrome':
@@ -96,6 +98,11 @@ def main():
                 from webdriver_manager.firefox import GeckoDriverManager
                 from selenium.webdriver.firefox.service import Service as FirefoxService
                 browser = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
+
+            current_time = ''
+            while current_time != starting_time:
+                current_time = (datetime.now() + timedelta(minutes=1)).strftime('%H:%M')
+                time.sleep(REFRESH_TIME)
 
             login_siak(username, password, browser)
             buka_irs(username, password, browser)
@@ -114,15 +121,15 @@ if __name__ == '__main__':
     logo = PhotoImage(file=resource_path("Logo.png"))
     icon = PhotoImage(file=resource_path("Icon.png"))
 
-    window.title(f'IRS Auto Refresh 0.9.5')
+    window.title(f'IRS Auto Refresh 0.9.6')
     window.configure(padx=30, pady=30, background=BLACK)
     window.iconphoto(False, icon)
-    window.maxsize(width=319, height=430)
-    window.minsize(width=319, height=430)
+    window.maxsize(width=338, height=500)
+    window.minsize(width=338, height=500)
 
     canvas = Canvas(width=256, height=256, background=BLACK, highlightthickness=0)
     canvas.create_image(128, 128, image=logo)
-    canvas.grid(column=0, row=0, columnspan=3, sticky='w')
+    canvas.grid(column=0, row=0, columnspan=3, sticky='n')
 
     username_label = Label(text='Username:', font=('Arial', 12, 'normal'), foreground='White', background=BLACK, anchor='e')
     username_label.grid(column=0, row=1, sticky='w', padx=2, pady=2)
@@ -130,14 +137,20 @@ if __name__ == '__main__':
     password_label = Label(text='Password:', font=('Arial', 12, 'normal'), foreground='White', background=BLACK, anchor='e')
     password_label.grid(column=0, row=2, sticky='w', padx=2, pady=2, columnspan=1)
 
+    time_label = Label(text='Starting Time:', font=('Arial', 12, 'normal'), foreground='White', background=BLACK, anchor='e')
+    time_label.grid(column=0, row=3, sticky='w', padx=2, pady=2, columnspan=1)
+
     browser_label = Label(text='Browser:', font=('Arial', 12, 'normal'), foreground='White', background=BLACK, anchor='e')
-    browser_label.grid(column=0, row=3, sticky='w', padx=2, pady=2, columnspan=1)
+    browser_label.grid(column=0, row=4, sticky='w', padx=2, pady=2, columnspan=1)
 
     username_entry = Entry(width=27)
     username_entry.grid(column=1, row=1, columnspan=2, sticky='w', padx=2, pady=2)
 
     password_entry = Entry(width=27, show='*')
     password_entry.grid(column=1, row=2, sticky='w', padx=2, pady=2, columnspan=2)
+
+    time_entry = Entry(width=27)
+    time_entry.grid(column=1, row=3, columnspan=2, sticky='w', padx=2, pady=2)
 
     dropdown_value = StringVar(window)
     dropdown_value.set('(Select your browser...)')
@@ -149,9 +162,9 @@ if __name__ == '__main__':
     dropdown_selection['values'] = list(current_data.keys())
     dropdown_selection['state'] = 'readonly'
     dropdown_selection.configure(width=24, height=1)
-    dropdown_selection.grid(column=1, row=3, sticky='w', padx=2, pady=2, columnspan=2)
+    dropdown_selection.grid(column=1, row=4, sticky='w', padx=2, pady=2, columnspan=2)
 
     submit_button = Button(text='Run', command=main, highlightthickness=0, width=23)
-    submit_button.grid(column=1, row=4, sticky='w', padx=2, pady=2, columnspan=2)
+    submit_button.grid(column=1, row=5, sticky='w', padx=2, pady=2, columnspan=2)
 
     window.mainloop()
