@@ -4,7 +4,7 @@ Making refreshing your SIAK NG IRS page a one-clicker ;)
 
 ## Download
 
-In the <a href="https://github.com/octo-org/octo-repo/releases/latest">releases</a> page.
+In the <a href="https://github.com/pinterbanget/irsautorefresh/releases/latest">releases</a> page.
 
 ## Usage
 
